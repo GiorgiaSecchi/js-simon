@@ -11,3 +11,25 @@ function randomNumber() {
 
 listRandomNumber = randomNumber();
 console.log(listRandomNumber);
+
+// timer 30 secondi
+
+const timerEl = document.getElementById("timer");
+
+let seconds = 30;
+
+const timer = setInterval(countdown, 1000);
+
+function countdown() {
+  if (seconds <= 0) {
+    clearInterval(timer);
+  } else {
+    timerEl.innerHTML = seconds;
+    seconds--;
+  }
+}
+
+// const outputNumberRandom = document.getElementById("list-number-random");
+
+// const outputNumberRandom = listRandomNumber;
+// console.log(outputNumberRandom);
