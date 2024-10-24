@@ -39,7 +39,9 @@ const timer = setInterval(countdown, 1000);
 function countdown() {
   if (seconds < 0) {
     clearInterval(timer);
+    // la funzione che rimuove allo scadere tutti i display-none agli elementi
     removeDislayNone();
+    listRandomNumberEl.classList.add("d-none");
   } else {
     timerEl.innerHTML = seconds;
     seconds--;
@@ -59,7 +61,3 @@ const removeDislayNone = () => {
   buttonEl.classList.remove("d-none");
   resultEl.classList.remove("d-none");
 };
-
-// const displayNoneEL = document.getElementsByClassName("d-none");
-// console.log(displayNoneEL);
-// elemento.classList.remove("d-none");
