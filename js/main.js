@@ -32,7 +32,7 @@ outputListNumbers = insertNumberList();
 
 const timerEl = document.getElementById("timer");
 
-let seconds = 30;
+let seconds = 3;
 
 const timer = setInterval(countdown, 1000);
 
@@ -40,7 +40,7 @@ function countdown() {
   if (seconds < 0) {
     clearInterval(timer);
     // la funzione che rimuove allo scadere tutti i display-none agli elementi
-    removeDislayNone();
+    removeDisplayNone();
     listRandomNumberEl.classList.add("d-none");
   } else {
     timerEl.innerHTML = seconds;
@@ -51,13 +51,40 @@ function countdown() {
 //# Elementi con display-none
 
 const instructionEl = document.getElementById("instruction");
-const inputNumbersEl = document.getElementById("input-numbers");
+const inputDivEl = document.getElementById("input-div");
 const buttonEl = document.getElementById("button");
 const resultEl = document.getElementById("result");
 
-const removeDislayNone = () => {
+const removeDisplayNone = () => {
   instructionEl.classList.remove("d-none");
-  inputNumbersEl.classList.remove("d-none");
+  inputDivEl.classList.remove("d-none");
   buttonEl.classList.remove("d-none");
   resultEl.classList.remove("d-none");
 };
+
+//# Prendere i valori degli input al click del bottone
+
+//! PERCHè MI DA "UNDEFINED" ???
+const userInput = document
+  .getElementById("input-div")
+  .getElementsByClassName("user-input");
+console.log(userInput);
+
+const prova = buttonEl.addEventListener("click", () => {
+  let combinedInputValue = "";
+
+  for (let i = 0; i < userInput.length, i++; ) {
+    combinedInputValue += userInput[i].value;
+
+    if (i < userInput.length - 1) {
+      combinedInputValue += ", ";
+    }
+  }
+
+  resultEl.innerText = combinedInputValue;
+  console.log(prova);
+});
+
+// const numbersMatched = () => {
+//     if (inputValue)
+// };
