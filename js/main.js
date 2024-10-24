@@ -1,18 +1,34 @@
-// Generare 5 numeri casuali da 1 a 99
+//# Generare 5 numeri casuali da 1 a 99
 
-let listRandomNumber = [];
+let arrayRandomNumbers = [];
 
-function randomNumber() {
+function generateRandomNumbers() {
   for (let i = 0; i < 5; i++) {
-    listRandomNumber.push(Math.floor(Math.random() * 99) + 1);
+    arrayRandomNumbers.push(Math.floor(Math.random() * 99) + 1);
   }
-  return listRandomNumber;
+  return arrayRandomNumbers;
 }
 
-listRandomNumber = randomNumber();
-console.log(listRandomNumber);
+arrayRandomNumbers = generateRandomNumbers();
+console.log(arrayRandomNumbers);
 
-// timer 30 secondi
+//# inserire i 5 numeri nella lista html
+
+const listRandomNumberEl = document.getElementById("list-random-number");
+
+function insertNumberList() {
+  randomNumbers = arrayRandomNumbers;
+
+  randomNumbers.forEach((number) => {
+    let listItem = document.createElement("li");
+    listItem.textContent = number;
+    listRandomNumberEl.appendChild(listItem);
+  });
+}
+
+outputListNumbers = insertNumberList();
+
+//# timer 30 secondi al caricamento pagina
 
 const timerEl = document.getElementById("timer");
 
@@ -21,15 +37,10 @@ let seconds = 30;
 const timer = setInterval(countdown, 1000);
 
 function countdown() {
-  if (seconds <= 0) {
+  if (seconds < 0) {
     clearInterval(timer);
   } else {
     timerEl.innerHTML = seconds;
     seconds--;
   }
 }
-
-// const outputNumberRandom = document.getElementById("list-number-random");
-
-// const outputNumberRandom = listRandomNumber;
-// console.log(outputNumberRandom);
