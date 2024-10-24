@@ -39,8 +39,27 @@ const timer = setInterval(countdown, 1000);
 function countdown() {
   if (seconds < 0) {
     clearInterval(timer);
+    removeDislayNone();
   } else {
     timerEl.innerHTML = seconds;
     seconds--;
   }
 }
+
+//# Elementi con display-none
+
+const instructionEl = document.getElementById("instruction");
+const inputNumbersEl = document.getElementById("input-numbers");
+const buttonEl = document.getElementById("button");
+const resultEl = document.getElementById("result");
+
+const removeDislayNone = () => {
+  instructionEl.classList.remove("d-none");
+  inputNumbersEl.classList.remove("d-none");
+  buttonEl.classList.remove("d-none");
+  resultEl.classList.remove("d-none");
+};
+
+// const displayNoneEL = document.getElementsByClassName("d-none");
+// console.log(displayNoneEL);
+// elemento.classList.remove("d-none");
