@@ -60,11 +60,11 @@ const removeDisplayNone = () => {
   inputDivEl.classList.remove("d-none");
   buttonEl.classList.remove("d-none");
   resultEl.classList.remove("d-none");
+  userInput[0].focus();
 };
 
 //# Prendere i valori degli input al click del bottone
 
-//! PERCHè MI DA "UNDEFINED" ???
 const userInput = document
   .getElementById("input-div")
   .getElementsByClassName("user-input");
@@ -73,7 +73,7 @@ console.log(userInput);
 const prova = buttonEl.addEventListener("click", () => {
   let combinedInputValue = "";
 
-  for (let i = 0; i < userInput.length, i++; ) {
+  for (let i = 0; i < userInput.length; i++) {
     combinedInputValue += userInput[i].value;
 
     if (i < userInput.length - 1) {
@@ -84,6 +84,8 @@ const prova = buttonEl.addEventListener("click", () => {
   resultEl.innerText = combinedInputValue;
   console.log(prova);
 });
+
+//# Verificare quanti(tot) e quali numeri random combaciano con i numeri input
 
 // const numbersMatched = () => {
 //     if (inputValue)
