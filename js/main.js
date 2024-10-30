@@ -70,23 +70,29 @@ const userInput = document
   .getElementsByClassName("user-input");
 console.log(userInput);
 
-const prova = buttonEl.addEventListener("click", () => {
-  let combinedInputValue = "";
+const outputResult = buttonEl.addEventListener("click", () => {
+  let combinedInputValue = [];
 
   for (let i = 0; i < userInput.length; i++) {
+    const currentValue = parseInt(userInput.value);
     combinedInputValue += userInput[i].value;
 
-    if (i < userInput.length - 1) {
-      combinedInputValue += ", ";
-    }
+    // if (i < userInput.length - 1) {
+    //   combinedInputValue += ", ";
+    // }
   }
 
-  resultEl.innerText = combinedInputValue;
-  console.log(prova);
+  //* Verificare quanti(tot) e quali numeri random combaciano con i numeri input
+  const correctNumbers = arrayRandomNumbers.filter((num) =>
+    combinedInputValue.includes(num)
+  );
+
+  const correctCount = correctNumbers.length;
+
+  console.log(correctNumbers);
+  console.log(correctCount);
+
+  // resultEl.innerText = combinedInputValue;
+  resultEl.innerText = `Totale indovinati: ${correctCount}
+  Numeri indovinati: ${correctNumbers.join(", ")} `;
 });
-
-//# Verificare quanti(tot) e quali numeri random combaciano con i numeri input
-
-// const numbersMatched = () => {
-//     if (inputValue)
-// };
