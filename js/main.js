@@ -32,7 +32,8 @@ outputListNumbers = insertNumberList();
 
 const timerEl = document.getElementById("timer");
 
-let seconds = 3;
+// let seconds = 30;
+let seconds = 10;
 
 const timer = setInterval(countdown, 1000);
 
